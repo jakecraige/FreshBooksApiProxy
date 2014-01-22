@@ -7,9 +7,8 @@ module Api
       private
 
         def build_params
-          # extension seems to pass them with extra quotes so I remove them here
-          @api_url    = params[:api_url].gsub(/\"/, ''),
-          @auth_token = params[:auth_token].gsub(/\"/, '')
+          @api_url    = params[:api_url].match(/[\w.]+/).to_s
+          @auth_token = params[:auth_token].match(/[\w.]+/).to_s
         end
 
     end

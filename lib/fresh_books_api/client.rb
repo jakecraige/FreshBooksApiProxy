@@ -27,7 +27,7 @@ module FreshBooksApi
     private
 
       def client
-        @client ||= FreshBooks::Client.new @api_url, @auth_token
+        @client ||= FreshBooks::Client.new api_url, auth_token
       end
 
   end
