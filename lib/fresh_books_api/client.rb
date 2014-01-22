@@ -1,6 +1,6 @@
 module FreshBooksApi
   class Client
-    attr_reader :client, :api_url, :auth_token
+    attr_reader :api_url, :auth_token
 
     def initialize(api_url, auth_token)
       @api_url = api_url
@@ -27,7 +27,7 @@ module FreshBooksApi
     private
 
       def client
-        @client ||= FreshBooks::Client.new api_url, auth_token
+        @client ||= FreshBooks::Client.new @api_url, @auth_token
       end
 
   end
