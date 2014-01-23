@@ -15,9 +15,8 @@ module FreshBooksApi
 
       list            = client.send(method).list
       number_of_pages = list[plural_key]['pages'].to_i
-      results         = list[plural_key][singular_key]
 
-      (1..number_of_pages).to_a.each do |page_number|
+      number_of_pages.times do |page_number|
         results << client.send(method).list(page: page_number)[plural_key][singular_key]
       end
 
